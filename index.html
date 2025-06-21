@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Performance Analysis</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Hourly Sales Heatmap</h1>
+            <p>An breakdown of sales activity by hour of the day.</p>
+        </header>
+
+        <!-- Heatmap Container -->
+        <div class="panel">
+            <h2>Hourly Sales Activity Heatmap</h2>
+            <div id="heatmap-container">
+                <svg id="heatmap"></svg>
+            </div>
+            <div class="legend">
+                <span>Less Active</span>
+                <div class="legend-colors">
+                    <div style="background-color: #e3f2fd;"></div>
+                    <div style="background-color: #90caf9;"></div>
+                    <div style="background-color: #42a5f5;"></div>
+                    <div style="background-color: #1e88e5;"></div>
+                    <div style="background-color: #0d47a1;"></div>
+                    <!-- color notes: 
+                    
+                    .range(['#e0f2f1', '#b2dfdb', '#4db6ac', '#00897b', '#004d40']);    //green shades
+                    .range(['#e3f2fd', '#90caf9', '#42a5f5', '#1e88e5', '#0d47a1']);    //blue shades
+                    .range(['#ffebee', '#ef9a9a', '#e57373', '#ef5350', '#b71c1c']);    //red shades
+                    .range(['#fffde7', '#fff59d', '#ffca28', '#ff8f00', '#e65100']);    //yellow shades
+                    
+                    -->
+                </div>
+                <span>More Active</span>
+            </div>
+        </div>
+
+        <!-- Tooltip -->
+        <div id="tooltip" class="tooltip"></div>
+
+        <!-- Critical Sales Analysis -->
+        <div class="analysis-section">
+            <h2 >Critical Sales Analysis & Insights</h2>
+            <div class="analysis-grid">
+                
+                <!-- Card 1: Peak Performance -->
+                <div class="analysis-card">
+                    <div class="analysis-card-header">
+                        <div class="analysis-card-icon icon-peak">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        </div>
+                        <h3>Peak Performance</h3>
+                    </div>
+                    <p>Your most active sales day is <strong id="best-day" class="text-peak"></strong>, with peak activity occurring around <strong id="peak-hour" class="text-peak"></strong>.</p>
+                    <p>This suggests an opportunity to maximize sales by running targeted promotions or increasing staff during these high-traffic periods.</p>
+                </div>
+
+                <!-- Card 2: Growth Opportunities -->
+                <div class="analysis-card">
+                    <div class="analysis-card-header">
+                        <div class="analysis-card-icon icon-growth">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                        </div>
+                        <h3>Growth Opportunities</h3>
+                    </div>
+                    <p>Your quietest day for sales is <strong id="worst-day" class="text-growth"></strong>. The hours between <strong class="text-growth">3 AM and 6 AM</strong> are consistently low across all days.</p>
+                    <p>Consider implementing marketing campaigns or special offers on your slower days to drive traffic and balance weekly sales volume.</p>
+                </div>
+                
+                <!-- Card 3: Transaction Analysis -->
+                <div class="analysis-card">
+                    <div class="analysis-card-header">
+                        <div class="analysis-card-icon icon-insights">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" height="24" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                           </svg>
+                        </div>
+                        <h3>Transaction Insights</h3>
+                    </div>
+                    <p>The total sales analyzed amount to <strong id="total-sales" class="text-insights"></strong> from <strong id="total-transactions" class="text-insights"></strong> transactions.</p>
+                    <p>The average transaction value is <strong id="avg-transaction" class="text-insights"></strong>. This is a key metric to track for revenue growth.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load the data from the external file -->
+    <script src="./sales-data.js" type="module"></script>
+    
+    <!-- Main application logic -->
+    <script src= script.js type="module"></script>
+</body>
+</html>
