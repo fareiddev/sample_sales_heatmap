@@ -165,7 +165,7 @@ body {
     .legend-colors div {
         width: 0.5rem;
         height: 0.5rem;
-        border-radius: 0.0.725rem;
+        border-radius: 0.0725rem;
         border: 0px solid #e5e7eb;
     }
 }
