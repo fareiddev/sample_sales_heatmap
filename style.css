@@ -159,6 +159,15 @@ body {
     .analysis-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .legend {
+        font-size: 0.5rem;
+    }
+    .legend-colors div {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 0.0.725rem;
+        border: 0px solid #e5e7eb;
+    }
 }
 @media (min-width: 1024px) { /* lg breakpoint */
     .analysis-grid {
