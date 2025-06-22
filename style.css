@@ -40,6 +40,7 @@ body {
     border: 1px solid #e5e7eb; /* border-gray-200 */
 }
 .panel h2 {
+    text-align: center;
     font-size: 1.25rem; /* text-xl */
     font-weight: 600;
     margin-bottom: 1rem;
@@ -50,12 +51,16 @@ body {
 #heatmap-container {
     width: 100%;
     overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .legend {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-top: 1rem;
+    margin-right: 2em;
     font-size: 0.75rem;
     color: #6b7280; /* text-gray-500 */
 }
@@ -159,8 +164,13 @@ body {
     .analysis-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+@media (max-width: 600px) {
     .legend {
         font-size: 0.5rem;
+        justify-content: center;
+        margin-right: 0;
     }
     .legend-colors div {
         width: 0.5rem;

@@ -22,15 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function drawHeatmap() {
         // Clear previous SVG content to allow for redrawing
         d3.select("#heatmap").selectAll("*").remove();
+        // console.clear();
 
         // Define margins and calculate dimensions based on container's current width
-        const margin = { top: 50, right: 20, bottom: 50, left: 60 };
+        let marginright = 20, marginleft = 60;
+        let margintop = 50, marginbot = 30;
+        if (container.clientWidth < 600) marginright = 5, marginleft = 30, margintop = 30, marginbot = 10;
+        const margin = { top: margintop, right: marginright, bottom: marginbot, left: marginleft};
         let width = container.clientWidth - margin.left - margin.right;
+        // console.log("Container Width: "+container.clientWidth);
+        // console.log("Width Pre Calc: "+width)
         if (width < 250) width = 250;
 
         const gridSize = Math.floor(width / hours.length);
         const height = gridSize * days.length;
         width = gridSize * hours.length;
+        // console.log("Width Post Calc: "+width)
+        // console.log("Height Post Calc: "+height)
 
         const svg = d3.select("#heatmap")
             .attr("width", width + margin.left + margin.right)
